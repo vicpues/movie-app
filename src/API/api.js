@@ -6,4 +6,11 @@ const getData = async () =>{
     const data = await response.json();
     console.log(data);
 };
-getData()
+
+const fetchTrendingMovies = async () => {
+    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
+    const data = await response.json();
+    return data.results;
+}
+
+export { getData, fetchTrendingMovies };
