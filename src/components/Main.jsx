@@ -1,9 +1,10 @@
 import React from 'react'
+import SearchBar from './SearchBar'
 
 const Main = () => {
   return (
-    <div>
-      Main
+    <div className='flex-1'>
+      <SearchBar />
     </div>
   )
 }
