@@ -3,3 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 *{ font-family: "Poppins", serif;}
+
+/* custom */
+.sidebar{
+    height: calc(100vh - 84px);
+}

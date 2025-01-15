@@ -1,10 +1,15 @@
-import React from 'react'
-import Navbar from './components/Navbar'
+import React from "react";
+// Components
+import SideBar from "./components/SideBar";
+import Main from "./components/Main";
 
 const App = () => {
   return (
-    <Navbar />
-  )
-}
+    <div className="flex gap-2">
+      <SideBar />
+      <Main />
+    </div>
+  );
+};
 
-export default App
+export default App;
