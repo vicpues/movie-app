@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Card = ({ content }) => {
-    let img = `https://image.tmdb.org/t/p/w500${content.poster_path}`
+  const img = `https://image.tmdb.org/t/p/w500${content.poster_path}`;
   return (
-    <div className='w-[18%]'>
+    <div className='w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer' >
       <img src={img} alt="" className='w-full h-[400px] rounded-lg object-cover'/>
       <div>
         <h3 className='mt-3 font-semibold text-lg'>{content.original_title}</h3>
@@ -17,9 +17,6 @@ const Card = ({ content }) => {
                 <p className='text-sm'>139m</p>
             </div>
         </div>
-        {/* <div className='mt-2'>
-          <p className='text-zinc-500 hover:underline cursor-pointer'>Learn More</p>
-        </div> */}
       </div>
     </div>
   )

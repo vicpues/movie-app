@@ -16,7 +16,7 @@ const CardContainer = () => {
 
   return (
     <div className='p-8'>
-      <h1 className='font-semibold text-3xl text-zinc-600'>Discover</h1>
+      <h1 className='font-semibold text-3xl text-zinc-600'>Trending</h1>
       <div className='flex flex-wrap gap-4 mt-12 justify-center items-center h-[70vh]'>
         { trending.length > 0 ?
           trending.map((item, index) => <Card content={item} key={index}/>)
