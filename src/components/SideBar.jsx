@@ -13,7 +13,7 @@ const SideBar = () => {
   const dispatch = useDispatch();
   const itemSearch = (name) => {
     dispatch(setItem(name));
-  }
+  };
 
   return (
     <div className="w-[15%]">

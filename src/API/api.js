@@ -1,16 +1,15 @@
 const API_KEY = `3383bcd2696682b35f848f85a1f62690`;
-const moveID = 550;
 
-const getData = async () =>{
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${moveID}?api_key=${API_KEY}`);
+const getData = async (name) =>{
+    const response = await fetch(`https://api.themoviedb.org/3/movie/?query=${name}?api_key=${API_KEY}`);
     const data = await response.json();
-    console.log(data);
+    return data.results
 };
 
-const fetchTrendingMovies = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
+const fetchMovies = async (name) => {
+    console.log(name)
+    const response = await fetch(`https://api.themoviedb.org/3/${name}/movie/week?api_key=${API_KEY}`);
     const data = await response.json();
     return data.results;
 }
-
-export { getData, fetchTrendingMovies };
+export { getData, fetchMovies };
