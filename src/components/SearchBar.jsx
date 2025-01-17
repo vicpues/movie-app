@@ -26,7 +26,7 @@ const SearchBar = () => {
     if (event.key === 'Enter') {
       event.preventDefault(); 
       if (searchTerm.trim() !== "") {
-        searchMovie(searchTerm);
+        searchMovie(searchTerm.toLowerCase());
       };
     };
   };
