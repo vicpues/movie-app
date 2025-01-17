@@ -9,3 +9,7 @@
     height: calc(100vh - 84px);
 }
 input:focus{outline: none;}
+.wrapper_card:hover > :not(:hover){
+    filter: blur(2px);
+    opacity: 0.8;
+}

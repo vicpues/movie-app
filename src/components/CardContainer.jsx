@@ -11,18 +11,19 @@ const CardContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchTrend = async () =>{
-      const data = await fetchMovies(itemQuery);
-      dispatch(setMovies(data))
-      console.log(moviesData)
+      if(itemQuery === "trending"){
+        const data = await fetchMovies(itemQuery)
+        dispatch(setMovies(data))
+      }
     };
     fetchTrend();
-  }, []);
+  }, ["", itemQuery]);
 
 
   return (
     <div className='p-8'>
       <h1 className='font-semibold text-3xl text-zinc-600'>{itemQuery.slice(0,1).toUpperCase()+itemQuery.slice(1)}</h1>
-      <div className='flex flex-wrap gap-4 mt-12 justify-center items-center h-[70vh]'>
+      <div className='wrapper_card flex flex-wrap gap-4 mt-12 justify-center items-center h-[70vh]'>
         { moviesData.length > 0 ?
           moviesData.map((item, index) => <Card content={item} key={index}/>)
           :

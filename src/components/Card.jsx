@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({ content }) => {
   const img = `https://image.tmdb.org/t/p/w500${content.poster_path}`;
   return (
-    <div className='w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer' >
+    <div className='m-card w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer' >
       <img src={img} alt="" className='w-full h-[400px] rounded-lg object-cover'/>
       <div>
         <h3 className='mt-3 font-semibold text-lg'>{content.original_title}</h3>
