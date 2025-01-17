@@ -10,6 +10,6 @@
 }
 input:focus{outline: none;}
 .wrapper_card:hover > :not(:hover){
-    filter: blur(2px);
-    opacity: 0.8;
+    filter: blur(1px);
+    opacity: 0.9;
 }
