@@ -1,9 +1,9 @@
 import React from 'react'
-
+import logo from '../assets/logo.png'
 const Header = () => {
   return (
-    <div className='py-6 text-center bg-[#2448C7]'>
-      <h1 className='text-white font-semibold text-3xl'>iPlex.</h1>
+    <div className='py-6 flex justify-center bg-[#2448C7]'>
+      <img src={logo} alt="logo" className='w-20'/>
     </div>
   )
 }
