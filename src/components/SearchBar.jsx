@@ -1,35 +1,47 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState, useEffect } from "react";
 // ICONS
 import { CiSearch } from "react-icons/ci";
 import { FaRegMoon } from "react-icons/fa";
-import { getData } from "../API/api";
+import { IoSunnyOutline } from "react-icons/io5";
 // redux
+import { getData } from "../API/api";
 import { useDispatch, useSelector } from "react-redux";
-import { setItem } from '../Store/Features/ListSearch'
+import { setItem } from "../Store/Features/ListSearch";
 import { setMovies } from "../Store/Features/MoviesList";
 import { setLoading } from "../Store/Features/LoadingSlice";
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   const searchMovie = (name) => {
-    const fetchData = async () =>{
+    const fetchData = async () => {
       const response = await getData(name);
       dispatch(setMovies(response));
       dispatch(setLoading(false));
     };
     fetchData();
-    dispatch(setItem("discover"))
-    
+    dispatch(setItem("discover"));
   };
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault(); 
+    if (event.key === "Enter") {
+      event.preventDefault();
       if (searchTerm.trim() !== "") {
         dispatch(setLoading(true));
         searchMovie(searchTerm.toLowerCase());
-      };
-    };
+      }
+    }
+  };
+  // dark mode
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
   return (
     <div className="bg-[#3B54D4] py-7 px-9 flex gap-3 justify-between items-center">
@@ -49,7 +61,13 @@ const SearchBar = () => {
         />
       </div>
       <div>
-        <span className="cursor-pointer text-zinc-300"><FaRegMoon size="1.2rem" /></span>
+        <span className="cursor-pointer text-zinc-300" onClick={toggleDarkMode}>
+          {
+            isDarkMode ?
+            <IoSunnyOutline size="1.4rem" />:
+            <FaRegMoon size="1.2rem" />
+          }
+        </span>
       </div>
     </div>
   );

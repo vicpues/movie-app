@@ -30,8 +30,8 @@ const CardContainer = () => {
         <img src={loading} alt="loader" className="w-40" />
       </div>
       :
-       <div className='p-8'>
-      <h1 className='font-semibold text-3xl text-zinc-600'>{itemQuery.slice(0,1).toUpperCase()+itemQuery.slice(1)}</h1>
+      <div className='p-8 '>
+      <h1 className='font-semibold text-3xl text-zinc-600 dark:text-zinc-400'>{itemQuery.slice(0,1).toUpperCase()+itemQuery.slice(1)}</h1>
       <div className='wrapper_card flex flex-wrap gap-4 mt-12 justify-center items-center h-[70vh]'>
         { moviesData.length > 0 && moviesData.map((item, index) => <Card content={item} key={index}/>)}
       </div>
