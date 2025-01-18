@@ -4,19 +4,19 @@ import { CiSearch } from "react-icons/ci";
 import { FaRegMoon } from "react-icons/fa";
 import { getData } from "../API/api";
 // redux
-import { useDispatch } from "react-redux";
-import { setQuery } from "../Store/Features/SingleQuery";
+import { useDispatch, useSelector } from "react-redux";
 import { setItem } from '../Store/Features/ListSearch'
 import { setMovies } from "../Store/Features/MoviesList";
+import { setLoading } from "../Store/Features/LoadingSlice";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   const searchMovie = (name) => {
-    dispatch(setQuery(name));
     const fetchData = async () =>{
       const response = await getData(name);
       dispatch(setMovies(response));
+      dispatch(setLoading(false));
     };
     fetchData();
     dispatch(setItem("discover"))
@@ -26,6 +26,7 @@ const SearchBar = () => {
     if (event.key === 'Enter') {
       event.preventDefault(); 
       if (searchTerm.trim() !== "") {
+        dispatch(setLoading(true));
         searchMovie(searchTerm.toLowerCase());
       };
     };
