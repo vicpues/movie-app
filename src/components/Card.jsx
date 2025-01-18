@@ -8,8 +8,8 @@ const Card = ({ content }) => {
     img = `https://image.tmdb.org/t/p/w500${content.poster_path}`
   }
   return (
-    <div className='m-card w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer' >
-      <img src={img} alt="" className='w-full h-[400px] rounded-lg object-cover'/>
+    <div className='m-card w-[22%] xl:w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer' >
+      <img src={img} alt="poster" className='w-full h-[350px] xl:h-[400px] rounded-lg object-cover'/>
       <div>
         <h3 className='mt-3 font-semibold text-lg leading-5'>{content.original_title}</h3>
         <div className='mt-2 flex flex-col'>

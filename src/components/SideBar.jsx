@@ -9,6 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setItem } from "../Store/Features/ListSearch";
 const SideBar = () => {
+  const [isSideBar, setIsSideBar] = useState(false);
   const item = useSelector((state) => state.ListSearch);
   const dispatch = useDispatch();
   const itemSearch = (name) => {
@@ -16,27 +17,29 @@ const SideBar = () => {
   };
 
   return (
-    <div className="w-[15%]">
-      <Header />
+    <div className={`${isSideBar ? "xl:w-[15%]" : "xl:w-[4%]"} transition duration-150 ease-out w-[19%]`}>
+      <Header isSideBar={isSideBar} setIsSideBar={setIsSideBar} />
       <div className="sidebar bg-[#1A1E23]">
         <div className="pt-16 text-white flex flex-col gap-2">
           <div className={`flex items-center gap-2 cursor-pointer  ${item === "trending" && "bg-black text-[#2448C7]"} p-4 px-6`} onClick={() => itemSearch("trending")}>
-            <IoHomeOutline size="1.2rem" />
-            <p className="text-lg">Trending</p>
+            <IoHomeOutline size={ isSideBar ? `1.2rem` : `1.6rem`} />
+            {isSideBar && <p className="text-lg">Trending</p>}
           </div>
-          <div className={`flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("discover")}>
-            <IoWalletOutline size="1.2rem" />
-            <p className="text-lg">Discover</p>
+          <div className={`flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
+            <IoWalletOutline size={ isSideBar ? `1.2rem` : `1.6rem`} />
+            {isSideBar && <p className="text-lg">Discover</p>}
           </div>
           <div className={`flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "upcoming" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("upcoming")}>
-            <FiCoffee size="1.2rem" />
-            <p className="text-lg">Upcoming</p>
+            <FiCoffee size={ isSideBar ? `1.2rem` : `1.6rem`} />
+            {isSideBar && <p className="text-lg">Upcoming</p>}
           </div>
           <div className="flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7]">
-            <FaRegHeart size="1.2rem" />
-            <p className="text-lg">Favorite</p>
+            <FaRegHeart size={ isSideBar ? `1.2rem` : `1.6rem`} />
+            {isSideBar && <p className="text-lg">Favorite</p>}
           </div>
         </div>
+        {
+          isSideBar &&
         <div className="p-6 text-zinc-400">
           <h4 className="font-semibold uppercase">Genre</h4>
           <div className="mt-4 flex flex-col gap-2">
@@ -46,6 +49,7 @@ const SideBar = () => {
           <a href="#">Horror</a>
           </div>
         </div>
+        }
       </div>
     </div>
   );

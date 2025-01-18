@@ -13,7 +13,6 @@ const CardContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setLoading(true));
-    console.log(isloading);
     const fetchTrend = async () => {
       if (itemQuery === "trending") {
         const data = await fetchMovies(itemQuery);
