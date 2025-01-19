@@ -11,7 +11,10 @@ import { setMovies } from "../Store/Features/MoviesList";
 import { setLoading } from "../Store/Features/LoadingSlice";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   const searchMovie = (name) => {
