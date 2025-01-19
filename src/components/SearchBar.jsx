@@ -45,7 +45,7 @@ const SearchBar = () => {
   };
   return (
     <div className="bg-[#3B54D4] py-7 px-9 flex gap-3 justify-between items-center">
-      <div className="flex gap-3 basis-1/2">
+      <search className="flex gap-3 basis-1/2">
         <span className="text-zinc-300">
           <CiSearch size="1.4rem" />
         </span>
@@ -59,7 +59,7 @@ const SearchBar = () => {
           onKeyDown={handleKeyDown}
           ref={inputRef}
         />
-      </div>
+      </search>
       <div>
         <span className="cursor-pointer text-zinc-300" onClick={toggleDarkMode}>
           {

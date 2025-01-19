@@ -17,7 +17,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className={`w-[${isSideBar ? "max(12rem,15%)" : "4%"}] min-h[100vh] transition duration-150 ease-out`}>
+    <nav className={`w-[${isSideBar ? "max(12rem,15%)" : "4%"}] min-h[100vh] transition duration-150 ease-out`}>
       <Header isSideBar={isSideBar} setIsSideBar={setIsSideBar} />
       <div className="sidebar bg-[#1A1E23]">
         <div className="pt-16 text-white flex flex-col gap-2">
@@ -51,7 +51,7 @@ const SideBar = () => {
         </div>
         }
       </div>
-    </div>
+    </nav>
   );
 };
 

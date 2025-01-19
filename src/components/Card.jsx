@@ -35,7 +35,7 @@ const Card = ({ content }) => {
   }, []);
 
   return (
-    <div className="m-card hover:scale-105 transition duration-150 ease-out cursor-pointer">
+    <article className="card hover:scale-105 transition duration-150 ease-out cursor-pointer">
       <img
         src={img}
         alt="poster"
@@ -59,7 +59,7 @@ const Card = ({ content }) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
