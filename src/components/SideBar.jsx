@@ -9,7 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setItem } from "../Store/Features/ListSearch";
 const SideBar = () => {
-  const [isSideBar, setIsSideBar] = useState(false);
+  const [isSideBar, setIsSideBar] = useState(true);
   const item = useSelector((state) => state.ListSearch);
   const dispatch = useDispatch();
   const itemSearch = (name) => {
