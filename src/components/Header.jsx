@@ -9,7 +9,7 @@ const Header = ({ isSideBar, setIsSideBar }) => {
   
 
   return (
-    <header className={`py-6 flex justify-between h-[80px] px-5 items-center bg-[#2448C7]`}>
+    <header className={`hidden sm:flex py-6 flex justify-between h-[80px] px-5 items-center bg-[#2448C7]`}>
       <img src={logo} alt="logo" className='w-20 pl-4'/>
       <span className='sm:hidden block p-2 text-white cursor-pointer' onClick={toggleSideBar}> <FaAlignLeft size="1.4rem"/> </span>
     </header>

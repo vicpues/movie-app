@@ -3,7 +3,7 @@ import Header from "./Header";
 // ICONS
 import { IoHomeOutline } from "react-icons/io5";
 import { IoWalletOutline } from "react-icons/io5";
-import { FiCoffee } from "react-icons/fi";
+import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 // states
 import { useSelector, useDispatch } from "react-redux";
@@ -29,13 +29,13 @@ const SideBar = () => {
             <IoWalletOutline size={`1.6rem`} />
             <p className="hidden text-lg sm:block">Discover</p>
           </div>
-          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
-            <FiCoffee size={`1.6rem`} />
-            <p className="hidden text-lg sm:block">Upcoming</p>
-          </div>
           <div className="flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7]">
             <FaRegHeart size={`1.6rem`} />
             <p className="hidden text-lg sm:block">Favorite</p>
+          </div>
+          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "upcoming" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("upcoming")}>
+            <IoSettingsOutline size={`1.6rem`} />
+            <p className="hidden text-lg sm:block">Settings</p>
           </div>
         </div>
         {
