@@ -11,7 +11,10 @@ import { setMovies } from "../Store/Features/MoviesList";
 import { setLoading } from "../Store/Features/LoadingSlice";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   const searchMovie = (name) => {
@@ -45,7 +48,7 @@ const SearchBar = () => {
   };
   return (
     <div className="bg-[#3B54D4] py-7 px-9 flex gap-3 justify-between items-center">
-      <div className="flex gap-3 basis-1/2">
+      <search className="flex gap-3 basis-1/2">
         <span className="text-zinc-300">
           <CiSearch size="1.4rem" />
         </span>
@@ -59,7 +62,7 @@ const SearchBar = () => {
           onKeyDown={handleKeyDown}
           ref={inputRef}
         />
-      </div>
+      </search>
       <div>
         <span className="cursor-pointer text-zinc-300" onClick={toggleDarkMode}>
           {

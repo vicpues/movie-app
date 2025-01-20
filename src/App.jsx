@@ -5,7 +5,7 @@ import Main from "./components/Main";
 
 const App = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col h-screen sm:flex-row">
       <SideBar />
       <Main />
     </div>

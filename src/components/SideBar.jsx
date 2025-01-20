@@ -17,30 +17,30 @@ const SideBar = () => {
   };
 
   return (
-    <div className={`${isSideBar ? "xl:w-[15%]" : "xl:w-[4%]"} transition duration-150 ease-out w-[19%]`}>
+    <nav className={`transition duration-150 ease-out`}>
       <Header isSideBar={isSideBar} setIsSideBar={setIsSideBar} />
-      <div className="sidebar bg-[#1A1E23]">
-        <div className="pt-16 text-white flex flex-col gap-2">
-          <div className={`flex items-center gap-2 cursor-pointer hover:text-[#2448C7]  ${item === "trending" && "bg-black text-[#2448C7]"} p-4 px-6`} onClick={() => itemSearch("trending")}>
-            <IoHomeOutline size={ isSideBar ? `1.2rem` : `1.6rem`} />
-            {isSideBar && <p className="text-lg">Trending</p>}
+      { isSideBar && <div className="sm:min-h-[calc(100vh-80px)] bg-[#1A1E23]">
+        <div className="flex text-white justify-around sm:pt-16 gap-2 sm:flex-col ">
+          <div className={`flex items-center h-16 gap-2 cursor-pointer hover:text-[#2448C7]  ${item === "trending" && "bg-black text-[#2448C7]"} p-4 px-6`} onClick={() => itemSearch("trending")}>
+            <IoHomeOutline size={`1.6rem`} />
+            {isSideBar && <p className="hidden text-lg sm:block">Trending</p>}
           </div>
-          <div className={`flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
-            <IoWalletOutline size={ isSideBar ? `1.2rem` : `1.6rem`} />
-            {isSideBar && <p className="text-lg">Discover</p>}
+          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
+            <IoWalletOutline size={`1.6rem`} />
+            <p className="hidden text-lg sm:block">Discover</p>
           </div>
-          <div className={`flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "upcoming" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("upcoming")}>
-            <FiCoffee size={ isSideBar ? `1.2rem` : `1.6rem`} />
-            {isSideBar && <p className="text-lg">Upcoming</p>}
+          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "upcoming" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("upcoming")}>
+            <FiCoffee size={`1.6rem`} />
+            <p className="hidden text-lg sm:block">Upcoming</p>
           </div>
-          <div className="flex items-center gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7]">
-            <FaRegHeart size={ isSideBar ? `1.2rem` : `1.6rem`} />
-            {isSideBar && <p className="text-lg">Favorite</p>}
+          <div className="flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7]">
+            <FaRegHeart size={`1.6rem`} />
+            <p className="hidden text-lg sm:block">Favorite</p>
           </div>
         </div>
         {
           isSideBar &&
-        <div className="p-6 text-zinc-400">
+        <div className="hidden p-6 text-zinc-400 sm:block">
           <h4 className="font-semibold uppercase">Genre</h4>
           <div className="mt-4 flex flex-col gap-2">
           <a href="#">Action</a>
@@ -50,8 +50,8 @@ const SideBar = () => {
           </div>
         </div>
         }
-      </div>
-    </div>
+      </div>}
+    </nav>
   );
 };
 

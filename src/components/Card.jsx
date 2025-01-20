@@ -35,11 +35,11 @@ const Card = ({ content }) => {
   }, []);
 
   return (
-    <div className="m-card w-[22%] xl:w-[18%] hover:scale-105 transition duration-150 ease-out cursor-pointer">
+    <article className="card hover:scale-105 transition duration-150 ease-out cursor-pointer">
       <img
         src={img}
         alt="poster"
-        className="w-full h-[350px] xl:h-[400px] rounded-lg object-cover"
+        className="w-full aspect-[2/3] rounded-lg object-cover"
       />
       <div>
         <h3 className="mt-3 font-semibold text-lg leading-5 dark:text-zinc-300">
@@ -59,7 +59,7 @@ const Card = ({ content }) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

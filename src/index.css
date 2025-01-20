@@ -5,9 +5,6 @@
 *{ font-family: "Poppins", serif;}
 
 /* custom */
-.sidebar{
-    height: calc(100vh - 80px);
-}
 input:focus{outline: none;}
 .wrapper_card:hover > :not(:hover){
     filter: blur(1px);
