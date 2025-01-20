@@ -48,14 +48,14 @@ const SearchBar = () => {
   };
   return (
     <div className="bg-[#3B54D4] py-7 px-9 flex gap-3 justify-between items-center">
-      <search className="flex gap-3 basis-1/2">
+      <search className="flex gap-3">
         <span className="text-zinc-300">
           <CiSearch size="1.4rem" />
         </span>
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent text-zinc-300 font-normal text-[md]"
+          className="bg-transparent text-zinc-300 font-normal w-full"
           spellCheck={false}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
