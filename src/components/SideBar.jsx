@@ -17,19 +17,19 @@ const SideBar = () => {
   };
 
   return (
-    <nav className={`transition duration-150 ease-out`}>
+    <nav className='transition duration-150 ease-out lg:w-[15%] xl:w-[12%]'>
       <Header isSideBar={isSideBar} setIsSideBar={setIsSideBar} />
-      { isSideBar && <div className="sm:min-h-[calc(100vh-80px)] bg-[#1A1E23]">
+    {isSideBar &&   <div className="sm:min-h-[calc(100vh-80px)] bg-[#1A1E23]">
         <div className="flex text-white justify-around sm:pt-16 gap-2 sm:flex-col ">
           <div className={`flex items-center h-16 gap-2 cursor-pointer hover:text-[#2448C7]  ${item === "trending" && "bg-black text-[#2448C7]"} p-4 px-6`} onClick={() => itemSearch("trending")}>
             <IoHomeOutline size={`1.6rem`} />
-            {isSideBar && <p className="hidden text-lg sm:block">Trending</p>}
+            <p className="hidden text-lg sm:block">Trending</p>
           </div>
           <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
             <IoWalletOutline size={`1.6rem`} />
             <p className="hidden text-lg sm:block">Discover</p>
           </div>
-          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "upcoming" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("upcoming")}>
+          <div className={`flex items-center h-16 gap-2 cursor-pointer p-4 px-6 hover:text-[#2448C7] ${item === "discover" && "bg-black text-[#2448C7]"}`} onClick={() => itemSearch("trending")}>
             <FiCoffee size={`1.6rem`} />
             <p className="hidden text-lg sm:block">Upcoming</p>
           </div>
